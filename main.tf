@@ -134,12 +134,12 @@ resource "azurerm_linux_virtual_machine" "NeekTech-vm" {
   }
 
   provisioner "local-exec" {
-    command = templatefile("windows-ssh-script.tpl", {
+    command = templatefile("${var.host_os}-ssh-script.tpl", {
       hostname     = self.public_ip_address,
       user         = "adminuser",
       identityfile = "~/.ssh/azurevmkey"
     })
-    interpreter = ["powershell", "-Command"]
+    interpreter = var.host_os == "windows" ? ["powershell", "-Command"] : ["bash", "-c"]
   }
 
   tags = {
