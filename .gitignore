@@ -1,0 +1,6 @@
+/.te
+.te
+
+/terraform.tfstate.backup
+terraform.tfstate.backup
+
