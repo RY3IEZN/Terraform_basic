@@ -4,3 +4,11 @@
 /terraform.tfstate.backup
 terraform.tfstate.backup
 
+
+# local terraform dir
+.terraform/*
+
+#tf state file
+*.tfstate
+*.tfstate.*
+
